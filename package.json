@@ -1,6 +1,6 @@
 {
-  "name": "@lovstudio/tauri-boilerplate",
-  "description": "Production-ready Tauri + React + TypeScript boilerplate by lovstudio",
+  "name": "lovtauri",
+  "description": "Lovtauri - A Tauri app by lovstudio",
   "author": "lovstudio",
   "private": false,
   "version": "0.1.0",

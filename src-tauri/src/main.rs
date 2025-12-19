@@ -2,5 +2,5 @@
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
 fn main() {
-    lovstudio_tauri_boilerplate_lib::run()
+    lovtauri_lib::run()
 }
