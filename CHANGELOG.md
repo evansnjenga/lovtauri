@@ -1,5 +1,14 @@
 # lovtauri
 
+## 0.1.1
+
+### Patch Changes
+
+- ### Improvements
+  - CI/CD release workflow with multi-platform builds
+  - Automatic changelog generation from CHANGELOG.md
+  - Version sync across package.json, Cargo.toml, and tauri.conf.json
+
 ## 0.1.0
 
 ### Features
