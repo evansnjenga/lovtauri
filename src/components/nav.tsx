@@ -1,5 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Info, Settings } from "lucide-react";
+import { Home, Settings } from "lucide-react";
 import { cn } from "@/lib/utils";
 import ThemeToggle from "./theme-toggle";
 
@@ -8,7 +8,6 @@ export default function Nav() {
 
   const links = [
     { to: "/", label: "Home", icon: Home },
-    { to: "/about", label: "About", icon: Info },
     { to: "/settings", label: "Settings", icon: Settings },
   ];
 

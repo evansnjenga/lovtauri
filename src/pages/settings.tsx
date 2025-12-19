@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Moon, Sun, Monitor, ChevronRight } from "lucide-react";
+import { Moon, Sun, Monitor, ChevronRight, ChevronDown } from "lucide-react";
 import { getVersion } from "@tauri-apps/api/app";
 import { useThemeStore } from "@/stores/theme";
 import { cn } from "@/lib/utils";
@@ -15,6 +15,7 @@ const themeOptions: { value: Theme; label: string; icon: typeof Sun }[] = [
 export default function Settings() {
   const { theme, setTheme } = useThemeStore();
   const [version, setVersion] = useState("");
+  const [showLicense, setShowLicense] = useState(false);
 
   useEffect(() => {
     getVersion().then(setVersion);
@@ -57,14 +58,31 @@ export default function Settings() {
         <section>
           <h2 className="text-sm font-medium text-muted-foreground mb-2 px-1">关于</h2>
           <div className="bg-card rounded-xl border overflow-hidden">
-            <div className="flex items-center px-4 py-3 border-b">
-              <span className="flex-1">版本</span>
-              <span className="text-muted-foreground">{version}</span>
+            <div className="flex items-center px-4 py-4 border-b">
+              <img src="/lovpen-logo.svg" className="h-10 w-10 mr-3" alt="Logo" />
+              <div>
+                <div className="font-medium">lovtauri</div>
+                <div className="text-xs text-muted-foreground">版本 {version}</div>
+              </div>
             </div>
-            <button className="flex items-center w-full px-4 py-3 text-left active:bg-muted">
+            <button
+              onClick={() => setShowLicense(!showLicense)}
+              className="flex items-center w-full px-4 py-3 text-left active:bg-muted"
+            >
               <span className="flex-1">开源许可</span>
-              <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              {showLicense ? (
+                <ChevronDown className="h-5 w-5 text-muted-foreground" />
+              ) : (
+                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              )}
             </button>
+            {showLicense && (
+              <div className="px-4 py-3 border-t bg-muted/30">
+                <p className="text-xs text-muted-foreground font-mono leading-relaxed">
+                  MIT License © {new Date().getFullYear()} lovstudio
+                </p>
+              </div>
+            )}
           </div>
         </section>
       </div>
