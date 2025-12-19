@@ -26,7 +26,7 @@ export function ShortcutRecorder({
   className,
 }: ShortcutRecorderProps) {
   const [recording, setRecording] = useState(false);
-  const [currentKeys, setCurrentKeys] = useState<Set<string>>(new Set());
+  const [, setCurrentKeys] = useState<Set<string>>(new Set());
 
   const handleKeyDown = useCallback(
     (e: KeyboardEvent) => {

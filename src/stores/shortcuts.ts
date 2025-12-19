@@ -13,7 +13,7 @@ interface ShortcutsStore {
   getDisplayKeys: (keys: string) => Promise<string>;
 }
 
-export const useShortcutsStore = create<ShortcutsStore>()((set, get) => ({
+export const useShortcutsStore = create<ShortcutsStore>()((set) => ({
   shortcuts: {},
   loading: true,
 
