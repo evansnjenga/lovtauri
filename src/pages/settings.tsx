@@ -61,7 +61,7 @@ export default function Settings() {
             <div className="flex items-center px-4 py-4 border-b">
               <img src="/lovpen-logo.svg" className="h-10 w-10 mr-3" alt="Logo" />
               <div>
-                <div className="font-medium">lovtauri</div>
+                <div className="font-medium">Lovtauri</div>
                 <div className="text-xs text-muted-foreground">版本 {version}</div>
               </div>
             </div>
@@ -79,7 +79,7 @@ export default function Settings() {
             {showLicense && (
               <div className="px-4 py-3 border-t bg-muted/30">
                 <p className="text-xs text-muted-foreground font-mono leading-relaxed">
-                  MIT License © {new Date().getFullYear()} lovstudio
+                  MIT License © {new Date().getFullYear()} Lovstudio
                 </p>
               </div>
             )}
