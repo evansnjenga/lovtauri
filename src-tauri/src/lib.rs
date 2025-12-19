@@ -1,6 +1,6 @@
 mod commands;
-mod shortcuts;
-mod tray;
+pub mod shortcuts;
+pub mod tray;
 
 use commands::*;
 use shortcuts::{register_shortcuts, ShortcutManager};
@@ -34,6 +34,7 @@ pub fn run() {
         .on_window_event(|window, event| {
             if let WindowEvent::CloseRequested { api, .. } = event {
                 let _ = window.hide();
+                let _ = tray::rebuild_tray(&window.app_handle());
                 api.prevent_close();
             }
         })

@@ -4,7 +4,7 @@ use std::fs;
 use std::path::PathBuf;
 use std::sync::Mutex;
 use tauri::{AppHandle, Manager};
-use tauri_plugin_global_shortcut::{GlobalShortcutExt, Shortcut};
+use tauri_plugin_global_shortcut::{GlobalShortcutExt, Shortcut, ShortcutState};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ShortcutConfig {
@@ -94,8 +94,10 @@ fn register_single_shortcut(app: &AppHandle, action: &str, keys: &str) -> Result
     let app_clone = app.clone();
 
     app.global_shortcut()
-        .on_shortcut(shortcut, move |_app, _shortcut, _event| {
-            handle_shortcut_action(&app_clone, &action);
+        .on_shortcut(shortcut, move |_app, _shortcut, event| {
+            if event.state == ShortcutState::Pressed {
+                handle_shortcut_action(&app_clone, &action);
+            }
         })
         .map_err(|e| e.to_string())
 }
@@ -104,8 +106,13 @@ fn handle_shortcut_action(app: &AppHandle, action: &str) {
     match action {
         "show_window" => {
             if let Some(window) = app.get_webview_window("main") {
-                let _ = window.show();
-                let _ = window.set_focus();
+                if window.is_visible().unwrap_or(false) {
+                    let _ = window.hide();
+                } else {
+                    let _ = window.show();
+                    let _ = window.set_focus();
+                }
+                let _ = crate::tray::rebuild_tray(app);
             }
         }
         _ => {}

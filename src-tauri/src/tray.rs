@@ -11,13 +11,20 @@ fn build_menu(app: &AppHandle) -> Result<Menu<tauri::Wry>, String> {
 
     let show_keys = config.shortcuts.get("show_window").cloned();
 
-    // Accelerator auto-displays shortcut on the right side of menu item
-    let show = MenuItem::with_id(app, "show", "显示窗口", true, show_keys.as_deref())
+    // Check window visibility to determine menu text
+    let is_visible = app
+        .get_webview_window("main")
+        .map(|w| w.is_visible().unwrap_or(false))
+        .unwrap_or(false);
+
+    let toggle_label = if is_visible { "隐藏窗口" } else { "显示窗口" };
+
+    let toggle = MenuItem::with_id(app, "toggle", toggle_label, true, show_keys.as_deref())
         .map_err(|e| e.to_string())?;
     let quit = MenuItem::with_id(app, "quit", "退出", true, None::<&str>)
         .map_err(|e| e.to_string())?;
 
-    Menu::with_items(app, &[&show, &quit]).map_err(|e| e.to_string())
+    Menu::with_items(app, &[&toggle, &quit]).map_err(|e| e.to_string())
 }
 
 pub fn setup_tray(app: &AppHandle) -> Result<(), String> {
@@ -45,10 +52,15 @@ pub fn setup_tray(app: &AppHandle) -> Result<(), String> {
             let _ = register_shortcuts(app);
 
             match event.id.as_ref() {
-                "show" => {
+                "toggle" => {
                     if let Some(window) = app.get_webview_window("main") {
-                        let _ = window.show();
-                        let _ = window.set_focus();
+                        if window.is_visible().unwrap_or(false) {
+                            let _ = window.hide();
+                        } else {
+                            let _ = window.show();
+                            let _ = window.set_focus();
+                        }
+                        let _ = rebuild_tray(app);
                     }
                 }
                 "quit" => {
