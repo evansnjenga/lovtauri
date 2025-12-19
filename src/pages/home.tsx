@@ -11,12 +11,13 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4 py-6 pb-24 sm:pb-6 sm:px-6 md:px-8">
-      <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 sm:mb-8 text-center leading-tight">
-        Welcome to Lovstudio Tauri
+      <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 text-center leading-tight">
+        Welcome to Lovtauri
       </h1>
+      <p className="text-sm text-muted-foreground mb-6 sm:mb-8">An opinionated Tauri starter, crafted by Lovstudio.</p>
 
       <div className="flex items-center gap-4 mb-6 sm:mb-8">
-        <img src="/lovpen-logo.svg" className="h-20 sm:h-24 md:h-28" alt="Lovstudio" />
+        <img src="/lovpen-logo.svg" className="h-20 sm:h-24 md:h-28" alt="Lovtauri" />
       </div>
 
       <form
