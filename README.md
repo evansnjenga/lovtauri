@@ -1,186 +1,129 @@
-# lovstudio Tauri Boilerplate
+<p align="center">
+  <img src="docs/images/cover.png" alt="Lovtauri Cover" width="100%">
+</p>
 
-Production-ready Tauri + React + TypeScript boilerplate with modern development tools and best practices.
+<h1 align="center">
+  <img src="assets/logo.svg" width="32" height="32" alt="Logo" align="top">
+  Lovtauri
+</h1>
 
-## Tech Stack
+<p align="center">
+  <strong>Production-ready Tauri + React + TypeScript boilerplate</strong><br>
+  <sub>macOS · Windows · Linux</sub>
+</p>
 
-### Frontend
-- **React 19** - Latest React with modern features
-- **TypeScript 5.8** - Type-safe development
-- **Vite 7** - Lightning-fast build tool with HMR
-- **React Router 7** - Client-side routing
-- **Tailwind CSS 4** - Utility-first CSS framework
-- **shadcn/ui** - High-quality React components
-- **Zustand** - Lightweight state management
+<p align="center">
+  <a href="#features">Features</a> •
+  <a href="#getting-started">Getting Started</a> •
+  <a href="#project-structure">Structure</a> •
+  <a href="#customization">Customization</a>
+</p>
 
-### Backend
-- **Tauri v2** - Rust-based desktop app framework
-- **Modular architecture** - Organized command structure
+---
 
-### Development Tools
-- **ESLint 9** - Code linting with modern flat config
-- **Prettier** - Code formatting
-- **TypeScript** - Type checking
-- **Rust fmt** - Rust code formatting
+## Features
+
+- **React 19** + **TypeScript 5.8** + **Vite 7** - Modern frontend stack with HMR
+- **Tauri v2** - Lightweight, secure Rust-based desktop runtime
+- **Tailwind CSS 4** + **shadcn/ui** - Beautiful, accessible UI components
+- **Zustand** - Simple, scalable state management with persistence
+- **React Router 7** - Client-side routing with example pages
+- **Theme System** - Light/dark mode with system preference detection
+- **ESLint 9** + **Prettier** - Code quality tooling with modern flat config
+- **Modular Rust Commands** - Organized backend architecture
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18+ and pnpm
+- Rust 1.70+
+- [Tauri Prerequisites](https://tauri.app/start/prerequisites/) for your platform
+
+### Installation
+
+```bash
+git clone https://github.com/nicekate/lovtauri.git my-app
+cd my-app
+pnpm install
+pnpm tauri dev
+```
+
+### Commands
+
+| Command | Description |
+|---------|-------------|
+| `pnpm tauri dev` | Start Tauri app with hot reload |
+| `pnpm tauri build` | Build production app |
+| `pnpm dev` | Start Vite dev server only |
+| `pnpm lint` | Run ESLint |
+| `pnpm format` | Format code with Prettier |
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| `Cmd/Ctrl + ,` | Open Settings |
 
 ## Project Structure
 
 ```
 lovtauri/
-├── src/                        # React frontend
-│   ├── components/             # Reusable components
-│   │   ├── nav.tsx            # Navigation component
-│   │   ├── theme-provider.tsx # Theme management
-│   │   └── theme-toggle.tsx   # Theme switcher
-│   ├── pages/                  # Route pages
-│   │   ├── home.tsx           # Home page
-│   │   └── about.tsx          # About page
-│   ├── stores/                 # Zustand stores
-│   │   └── theme.ts           # Theme store example
-│   ├── lib/                    # Utilities
-│   │   └── utils.ts           # Helper functions (cn, etc.)
-│   ├── App.tsx                # App router
-│   ├── main.tsx               # React entry
-│   └── globals.css            # Global styles + Tailwind
-├── src-tauri/                  # Rust backend
-│   ├── src/
-│   │   ├── commands/          # Tauri commands (modular)
-│   │   │   ├── mod.rs
-│   │   │   └── greet.rs       # Example command
-│   │   ├── lib.rs             # Main app setup
-│   │   └── main.rs            # Entry point
-│   └── Cargo.toml             # Rust dependencies
-├── tailwind.config.ts          # Tailwind configuration
-├── tsconfig.json               # TypeScript config with path aliases
-├── vite.config.ts              # Vite config with Tauri integration
-├── eslint.config.js            # ESLint flat config
-└── .prettierrc                 # Prettier config
+├── src/
+│   ├── components/         # React components
+│   ├── pages/              # Route pages (home, about, settings)
+│   ├── stores/             # Zustand stores
+│   ├── lib/                # Utilities (cn, etc.)
+│   └── globals.css         # Tailwind + theme variables
+├── src-tauri/
+│   ├── src/commands/       # Modular Tauri commands
+│   └── tauri.conf.json     # App configuration
+└── tailwind.config.ts      # Theme configuration
 ```
-
-## Getting Started
-
-### Prerequisites
-- Node.js 18+ and pnpm
-- Rust 1.70+
-- Platform-specific dependencies for Tauri (see [Tauri Prerequisites](https://tauri.app/start/prerequisites/))
-
-### Installation
-
-1. Clone or use as template:
-```bash
-git clone https://github.com/lovstudio/tauri-boilerplate.git my-app
-cd my-app
-```
-
-2. Install dependencies:
-```bash
-pnpm install
-```
-
-3. Start development:
-```bash
-pnpm tauri dev
-```
-
-### Development Commands
-
-```bash
-# Frontend
-pnpm dev              # Start Vite dev server
-pnpm build            # Build frontend
-pnpm preview          # Preview production build
-
-# Tauri
-pnpm tauri dev        # Start Tauri app (includes frontend)
-pnpm tauri build      # Build production app
-
-# Code Quality
-pnpm lint             # Run ESLint
-pnpm lint:fix         # Fix ESLint issues
-pnpm format           # Format with Prettier
-pnpm format:check     # Check formatting
-
-# Rust
-cd src-tauri
-cargo fmt             # Format Rust code
-cargo clippy          # Lint Rust code
-```
-
-## Features
-
-### 🎨 Theme System
-- Light/Dark mode with system preference support
-- Persistent theme storage with Zustand
-- shadcn/ui integration with CSS variables
-
-### 🧭 Routing
-- React Router 7 setup
-- Example pages (Home, About)
-- Navigation component with active state
-
-### 📦 State Management
-- Zustand with TypeScript
-- Persist middleware example (theme storage)
-- Simple, unopinionated structure
-
-### 🎯 Type Safety
-- Full TypeScript coverage
-- Path aliases (`@/*` imports)
-- Tauri command type safety
-
-### 🛠 Development Experience
-- Hot Module Replacement (HMR)
-- ESLint + Prettier integration
-- VS Code ready
 
 ## Customization
 
 ### Update App Identity
 
-1. **package.json**: Change `name`, `description`, `author`
-2. **Cargo.toml**: Update `name`, `description`, `authors`
-3. **src-tauri/tauri.conf.json**: Modify app identifier and metadata
+1. `package.json` - name, description
+2. `src-tauri/Cargo.toml` - package name
+3. `src-tauri/tauri.conf.json` - identifier, productName
 
-### Adding Tauri Commands
+### Add Tauri Commands
 
-1. Create command in `src-tauri/src/commands/your_command.rs`:
 ```rust
+// src-tauri/src/commands/my_command.rs
 #[tauri::command]
-pub fn your_command(param: &str) -> String {
-    // Your logic
+pub fn my_command(param: &str) -> String {
+    format!("Hello, {}", param)
 }
 ```
 
-2. Export in `src-tauri/src/commands/mod.rs`:
-```rust
-pub mod your_command;
-pub use your_command::your_command;
-```
+Register in `commands/mod.rs` and `lib.rs`.
 
-3. Register in `src-tauri/src/lib.rs`:
-```rust
-.invoke_handler(tauri::generate_handler![greet, your_command])
-```
+### Add shadcn Components
 
-### Adding shadcn/ui Components
-
-Use shadcn CLI or manually add components:
 ```bash
 npx shadcn@latest add button
 ```
 
-## Best Practices
+## Tech Stack
 
-- Use semantic color tokens (e.g., `bg-background`, `text-foreground`)
-- Leverage Tailwind config for theme consistency
-- Organize Tauri commands by feature/module
-- Keep components small and focused (KISS principle)
-- Use TypeScript strictly
+| Layer | Technology |
+|-------|------------|
+| Frontend | React 19, TypeScript 5.8, Vite 7 |
+| Styling | Tailwind CSS 4, shadcn/ui |
+| State | Zustand with persistence |
+| Routing | React Router 7 |
+| Backend | Tauri v2, Rust |
+| Quality | ESLint 9, Prettier |
 
 ## License
 
 MIT
 
-## Credits
+---
 
-Built with ❤️ by [lovstudio](https://github.com/lovstudio)
+<p align="center">
+  Built with Tauri + React by <a href="https://github.com/nicekate">nicekate</a>
+</p>
