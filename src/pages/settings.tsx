@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react";
 import { Moon, Sun, Monitor, ChevronRight, ChevronDown } from "lucide-react";
 import { getVersion } from "@tauri-apps/api/app";
+import { invoke } from "@tauri-apps/api/core";
 import { useThemeStore } from "@/stores/theme";
+import { useSettingsStore } from "@/stores/settings";
 import { cn } from "@/lib/utils";
 
 type Theme = "light" | "dark" | "system";
@@ -14,12 +16,17 @@ const themeOptions: { value: Theme; label: string; icon: typeof Sun }[] = [
 
 export default function Settings() {
   const { theme, setTheme } = useThemeStore();
+  const { showTray, setShowTray } = useSettingsStore();
   const [version, setVersion] = useState("");
   const [showLicense, setShowLicense] = useState(false);
 
   useEffect(() => {
     getVersion().then(setVersion);
   }, []);
+
+  useEffect(() => {
+    invoke("set_tray_visible", { visible: showTray });
+  }, [showTray]);
 
   return (
     <div className="min-h-screen pb-24 sm:pb-6">
@@ -51,6 +58,32 @@ export default function Settings() {
                 </button>
               );
             })}
+          </div>
+        </section>
+
+        {/* General Section */}
+        <section className="mb-6">
+          <h2 className="text-sm font-medium text-muted-foreground mb-2 px-1">通用</h2>
+          <div className="bg-card rounded-xl border overflow-hidden">
+            <button
+              onClick={() => setShowTray(!showTray)}
+              className="flex items-center w-full px-4 py-3 text-left"
+            >
+              <span className="flex-1">显示托盘图标</span>
+              <div
+                className={cn(
+                  "w-11 h-6 rounded-full transition-colors relative",
+                  showTray ? "bg-primary" : "bg-muted"
+                )}
+              >
+                <div
+                  className={cn(
+                    "absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+                    showTray ? "translate-x-5" : "translate-x-0.5"
+                  )}
+                />
+              </div>
+            </button>
           </div>
         </section>
 
