@@ -1,4 +1,6 @@
+import { useEffect, useState } from "react";
 import { Moon, Sun, Monitor, ChevronRight } from "lucide-react";
+import { getVersion } from "@tauri-apps/api/app";
 import { useThemeStore } from "@/stores/theme";
 import { cn } from "@/lib/utils";
 
@@ -12,6 +14,11 @@ const themeOptions: { value: Theme; label: string; icon: typeof Sun }[] = [
 
 export default function Settings() {
   const { theme, setTheme } = useThemeStore();
+  const [version, setVersion] = useState("");
+
+  useEffect(() => {
+    getVersion().then(setVersion);
+  }, []);
 
   return (
     <div className="min-h-screen pb-24 sm:pb-6">
@@ -52,7 +59,7 @@ export default function Settings() {
           <div className="bg-card rounded-xl border overflow-hidden">
             <div className="flex items-center px-4 py-3 border-b">
               <span className="flex-1">版本</span>
-              <span className="text-muted-foreground">1.0.0</span>
+              <span className="text-muted-foreground">{version}</span>
             </div>
             <button className="flex items-center w-full px-4 py-3 text-left active:bg-muted">
               <span className="flex-1">开源许可</span>
