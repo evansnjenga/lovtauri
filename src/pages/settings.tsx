@@ -28,10 +28,12 @@ export default function Settings() {
   const [version, setVersion] = useState("");
   const [showLicense, setShowLicense] = useState(false);
   const [displayKeys, setDisplayKeys] = useState<Record<string, string>>({});
+  const [autostart, setAutostart] = useState(true);
 
   useEffect(() => {
     getVersion().then(setVersion);
     fetchShortcuts();
+    invoke<boolean>("get_autostart").then(setAutostart);
   }, []);
 
   useEffect(() => {
@@ -107,6 +109,29 @@ export default function Settings() {
         <section className="mb-6">
           <h2 className="text-sm font-medium text-muted-foreground mb-2 px-1">通用</h2>
           <div className="bg-card rounded-xl border overflow-hidden">
+            <button
+              onClick={() => {
+                const newValue = !autostart;
+                setAutostart(newValue);
+                invoke("set_autostart", { enabled: newValue });
+              }}
+              className="flex items-center w-full px-4 py-3 text-left border-b"
+            >
+              <span className="flex-1">开机自启动</span>
+              <div
+                className={cn(
+                  "w-11 h-6 rounded-full transition-colors relative",
+                  autostart ? "bg-primary" : "bg-muted"
+                )}
+              >
+                <div
+                  className={cn(
+                    "absolute top-0.5 h-5 w-5 rounded-full bg-white shadow transition-transform",
+                    autostart ? "translate-x-5" : "translate-x-0.5"
+                  )}
+                />
+              </div>
+            </button>
             <button
               onClick={() => setShowTray(!showTray)}
               className="flex items-center w-full px-4 py-3 text-left"
