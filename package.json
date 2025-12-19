@@ -1,5 +1,6 @@
 {
   "name": "lovtauri",
+  "packageManager": "pnpm@10.18.1",
   "description": "Lovtauri - A Tauri app by lovstudio",
   "author": "lovstudio",
   "private": false,
@@ -21,7 +22,9 @@
     "lint": "eslint src --ext ts,tsx",
     "lint:fix": "eslint src --ext ts,tsx --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
-    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\""
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
+    "version:sync": "node scripts/sync-cargo-version.cjs",
+    "release": "changeset version && pnpm version:sync"
   },
   "dependencies": {
     "@radix-ui/react-label": "^2.1.8",
@@ -41,6 +44,7 @@
     "zustand": "^5.0.9"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.29.8",
     "@tailwindcss/forms": "^0.5.11",
     "@tailwindcss/postcss": "^4.1.18",
     "@tailwindcss/typography": "^0.5.19",
